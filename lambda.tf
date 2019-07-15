@@ -87,10 +87,10 @@ resource "aws_lambda_function" "lambda_with_vpc" {
   memory_size                    = "${var.memory_size}"
   reserved_concurrent_executions = "${var.reserved_concurrent_executions}"
   runtime                        = "${var.runtime}"
-  layers                         = "${var.layers}"
+  # layers                         = "${var.layers}"
   timeout                        = "${local.timeout}"
   publish                        = "${local.publish}"
-  tags                           = "${var.tags}"
+  # tags                           = "${var.tags}"
   filename                       = "${lookup(data.external.built.result, "filename")}"
   depends_on                     = ["null_resource.archive"]
   environment                    = ["${slice( list(var.environment), 0, length(var.environment) == 0 ? 0 : 1 )}"]
